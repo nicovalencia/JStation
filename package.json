@@ -1,0 +1,44 @@
+{
+  "name": "nv-jstation",
+  "version": "0.0.2",
+  "author": {
+    "name": "Nico Valencia",
+    "email": "info@nico.io"
+  },
+  "description": "My playground for widgets.",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nicovalencia/JStation.git"
+  },
+  "keywords": [
+    "javascript",
+    "widget",
+    "dashboard",
+    "jstation"
+  ],
+  "homepage": "https://github.com/nicovalencia/JStation",
+  "scripts": {
+    "start": "node ./bin/server"
+  },
+  "contributors": [],
+  "dependencies": {
+    "express": "~3.0.6",
+    "grunt-contrib": "~0.3.0"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=0.4"
+  },
+  "bugs": {
+    "url": "https://github.com/nicovalencia/JStation/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/nicovalencia/JStation/blob/master/LICENSE"
+    }
+  ],
+  "analyze": false,
+  "subdomain": "nv-jstation"
+}

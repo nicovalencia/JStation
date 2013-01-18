@@ -14,20 +14,6 @@ module.exports = function(grunt) {
         ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */'
     },
 
-    concat: {
-      dist: {
-        src: ['<banner:meta.banner>', '<file_strip_banner:lib/<%= pkg.name %>.js>'],
-        dest: 'dist/<%= pkg.name %>.js'
-      }
-    },
-
-    min: {
-      dist: {
-        src: ['<banner:meta.banner>', '<config:concat.dist.dest>'],
-        dest: 'dist/<%= pkg.name %>.min.js'
-      }
-    },
-
     watch: {
       scripts: {
         files: ['app/**/*.js', 'app/**/*.hbs'],
@@ -45,7 +31,7 @@ module.exports = function(grunt) {
           wrapped: true
         },
         files: {
-          "app/lib/templates.js": "app/templates/*.hbs"
+          "app/lib/templates.js": "app/templates/**/*.hbs"
         }
       }
     },

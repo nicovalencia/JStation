@@ -3,9 +3,11 @@ require([
   'underscore',
   'backbone',
 
-  'views/layout'
+  'views/layout',
 
-], function( _, Backbone, LayoutView ){
+  'components/toolbar'
+
+], function( _, Backbone, LayoutView, Toolbar ){
 
   var app = {};
 
@@ -28,9 +30,12 @@ require([
 
   function Init() {
     app.layout = new LayoutView();
+
+    // components
+    app.toolbar = new Toolbar();
   };
 
-  window.app = app;
+  window.JStation = app;
   $(document).ready(Init);
 
 });

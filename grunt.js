@@ -29,8 +29,25 @@ module.exports = function(grunt) {
     },
 
     watch: {
-      files: '<config:lint.files>',
-      tasks: 'lint qunit'
+      scripts: {
+        files: ['app/**/*.js', 'app/**/*.hbs'],
+        tasks: ['build'],
+        options: {
+          interrupt: true
+        }
+      }
+    },
+
+    handlebars: {
+      compile: {
+        options: {
+          namespace: "JST",
+          wrapped: true
+        },
+        files: {
+          "app/lib/templates.js": "app/templates/*.hbs"
+        }
+      }
     },
 
     requirejs: {
@@ -46,7 +63,7 @@ module.exports = function(grunt) {
   });
 
   // Default task.
-  grunt.registerTask('build', 'requirejs');
+  grunt.registerTask('build', 'handlebars requirejs');
 
   grunt.loadNpmTasks('grunt-contrib');
 };

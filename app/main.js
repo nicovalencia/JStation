@@ -13,13 +13,20 @@ require([
    * app.config
    * [Object] for application configuration.
    */
+  app.config = {
+
+  };
+
+  /**
+   * app.layout
+   * [Backbone View Object] main application view.
+   */
 
 
   // private
 
 
   function Init() {
-    if ( typeof console !== "undefined" ) console.log('---> Application initialized.');
     app.layout = new LayoutView();
   };
 

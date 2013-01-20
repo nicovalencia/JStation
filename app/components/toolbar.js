@@ -10,14 +10,13 @@ define([
 
     theme: 'default',
 
+    grid: {
+      width: 6,
+      height: 3
+    },
+
     initialize: function() {
-      console.log('---> Toolbar Initialized!');
-      this.render({
-        x:300,
-        y:200,
-        width:350,
-        height:200
-      });
+      this.render('<p>Toolbar content.</p>');
     }
 
   });

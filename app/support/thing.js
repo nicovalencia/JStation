@@ -6,43 +6,43 @@ define([
 
   var api = {
 
-    defaults: {
-      x: 10,
-      y: 10,
-      width: 200,
-      height:100
-    },
+    isNew: true,
 
     themes: {
       "default": Templates["app/templates/themes/default.hbs"]
     },
 
-    render: function(options) {
-      this.updateMarkup(options);
-      this.updateDOM();
+    render: function(html) {
+      this.updateMarkup(html);
+
+      if ( this.isNew ) {
+        this.setPosition();
+        this.addToDOM();
+        this.isNew = false;
+      }
     },
 
-    updateMarkup: function(o) {
-      var markup = this.themes[this.theme](o.html);
-
+    updateMarkup: function(html) {
+      var markup = this.themes[this.theme]({html: html});
       this.$el.html(markup);
+    },
+
+    setPosition: function() {
       this.$el.css({
-        top: o.x || this.defaults.x,
-        left: o.y || this.defaults.y,
-        width: o.width || this.defaults.width,
-        height: o.height || this.defaults.height
+        top: 100,
+        left: 100,
+        width: this.grid.width * 100,
+        height: this.grid.height * 100
       });
     },
 
-    updateDOM: function() {
+    addToDOM: function() {
       var $body = $('body');
       var $thing = this.$el;
 
-      if ( !$body.find($thing).length ) {
-        $thing.hide();
-        $body.append($thing);
-        $thing.fadeIn('slow');
-      }
+      $thing.hide();
+      $body.append($thing);
+      $thing.fadeIn('slow');
     }
 
   };

@@ -8,8 +8,8 @@ define([
 
     isNew: true,
 
-    themes: {
-      "default": Templates["app/templates/themes/default.hbs"]
+    layouts: {
+      "default": Templates["app/templates/layouts/default.hbs"]
     },
 
     render: function(html) {
@@ -23,7 +23,7 @@ define([
     },
 
     updateMarkup: function(html) {
-      var markup = this.themes[this.theme]({html: html});
+      var markup = this.layouts[this.layout]({html: html});
       this.$el.html(markup);
     },
 
@@ -40,9 +40,12 @@ define([
       var $body = $('body');
       var $thing = this.$el;
 
-      $thing.hide();
       $body.append($thing);
-      $thing.fadeIn('slow');
+
+      //@todo: abstract css3 transition triggers
+      setTimeout(function() {
+        $thing.addClass('show')
+      }, 1);
     }
 
   };

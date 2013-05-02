@@ -8,7 +8,7 @@ define([
 
     className: 'thing',
 
-    theme: 'default',
+    layout: 'default',
 
     grid: {
       width: 6,

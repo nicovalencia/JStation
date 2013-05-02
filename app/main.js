@@ -5,9 +5,10 @@ require([
 
   'views/layout',
 
-  'components/toolbar'
+  'components/toolbar',
+  'components/example'
 
-], function( _, Backbone, LayoutView, Toolbar ){
+], function( _, Backbone, LayoutView, Toolbar, Example ){
 
   var app = {};
 
@@ -33,6 +34,7 @@ require([
 
     // components
     app.toolbar = new Toolbar();
+    app.example = new Example();
   };
 
   window.JStation = app;
